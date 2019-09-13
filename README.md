@@ -1,2 +1,2 @@
 # 🧠📦 KnowledgeBox
-A collection of useful programming related content
+A collection of useful programming stuff !
