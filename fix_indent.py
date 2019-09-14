@@ -5,7 +5,6 @@ This program is used to convert markdown file's tab indentations to 2 spaces.
 
 import argparse
 from pathlib import Path
-import os
 import io
 import itertools
 from multiprocessing import Pool
@@ -18,26 +17,12 @@ def fix_indent(filename):
         text = h.read()
 
     lines = text.splitlines(True)
-    c = len(lines)
-    i = 0
-
-    # Replace tab to spaces
-    while i < c:
-        line = lines[i]
-
+    skip = False
+    for index, line in enumerate(lines):
         if line.startswith("```"):
-            i += 1
-            while i < c:
-                if lines[i].startswith("```"):
-                    break
-                i += 1
-            else:
-                continue
-            break
-        elif line.startswith("\t"):
-            lines[i] = line.replace("\t", _TAB_2_SPACE)
-
-        i += 1
+            skip = not skip
+        elif not skip and line.startswith("\t"):
+            lines[index] = line.replace("\t", _TAB_2_SPACE)
 
     with io.open(filename, mode="w", encoding="utf-8") as h:
         h.write("".join(lines))
