@@ -31,7 +31,7 @@
   * Static storage - `static int st_local = 100;` inside a function. - This has a static lifetime and retains it's value between calls. But it's block scope so it cannot be accessed from outside. (It's initialized on first call)
   * Allocated objects
     * Allocate - `malloc(n * sizeof(int))`
-    * Deallocate - `free yourptr;`
+    * Deallocate - `free(yourptr);`
     * Lifetime is controlled by the programmer.
 * Where?
   * Automatic - Stack
