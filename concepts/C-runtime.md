@@ -99,6 +99,8 @@ _startup:
 * 🔵 VLA - variable length array - where does it go? For smaller allocations it's in `.stack` and larger in `.heap`
 	* Introduced in C99 where you can have dynamically sized automatic arrays (from arguments to a function, etc.)
 	* MISRA-C:2012 standard - bans malloc and VLAs.
+	* This is now optional in C11 to implement in compilers.
+	* Some compilers have issues with VLA.
 * Memory Protection Unit (ARMv6/7-M) & Stack Limit Register (ARMv8-M)
 
 
@@ -109,3 +111,4 @@ _startup:
 
 # Reference
 * Video: https://www.youtube.com/watch?v=3F3lp_F2YpQ
+* Various other sources
